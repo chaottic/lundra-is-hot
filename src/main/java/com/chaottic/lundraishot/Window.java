@@ -11,10 +11,13 @@ public final class Window {
         glfwDefaultWindowHints();
         glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 4);
         glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 6);
+        glfwWindowHint(GLFW_CONTEXT_RELEASE_BEHAVIOR, GLFW_RELEASE_BEHAVIOR_FLUSH);
 
-        if ((window = glfwCreateWindow(100, 100, "Lundra Is Hot", NULL, NULL)) == NULL) {
+        if ((window = glfwCreateWindow(854, 480, "Lundra Is Hot", NULL, NULL)) == NULL) {
             throw new RuntimeException("Failed to create a GLFW Window.");
         }
+
+        glfwMakeContextCurrent(window);
     }
 
     public boolean shouldClose() {
